@@ -19,9 +19,8 @@ class PengaturanController extends Controller
     public function index(): View
     {
         $pengaturan = Pengaturan::firstOrFail(); 
-        $jadwals = Jadwal::orderBy('order')->get();
         
-        return view('admin.pengaturan', compact('pengaturan', 'jadwals'));
+        return view('admin.pengaturan', compact('pengaturan'));
     }
 
     /**
@@ -91,4 +90,3 @@ class PengaturanController extends Controller
         return redirect()->route('admin.pengaturan.index')->with('success', 'Jadwal berhasil dihapus.');
     }
 }
-
